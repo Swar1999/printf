@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 		if (format == NULL)/*no character detected*/
 			return (-1);/*failed*/
 		va_start(character, format);/*initlize the list*/
-		for (i = 0; format; format[i] != '\0')/*end of string*/
+		while(format[i] != '\0')/*end of string*/
 		{
 			if (format[i] != '%')/*no specifiers*/
 				counter++;/*print string*/
