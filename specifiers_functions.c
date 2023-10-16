@@ -42,5 +42,6 @@ int string_func(va_list sp)
  */
 int percent_func(va_list sp)
 {
+	(void) sp;
 	return (write(1, "%%", 1));
 }
