@@ -6,32 +6,33 @@
  */
 int _printf(const char *format, ...)
 {
+	int i;
 	int counter = 0;/* to count each characture that is printed*/
 	int specifier;
 	va_list character;/*ceart variadic list*/
 		if (format == NULL)/*no character detected*/
 			return (-1);/*failed*/
 		va_start(character, format);/*initlize the list*/
-		while (*format)/*end of string*/
+		for (i = 0; format; format[i] !='\0')/*end of string*/
 		{
-			if (*format != '%')/*no specifiers*/
+			if (format[i] != '%')/*no specifiers*/
 				counter++;/*print string*/
 			else
 			{
-				format++;
-				if (*format == '\0')
+				i++;
+				if (format[i] == '\0')
 					break;/*finish program*/
-				if (*format == 'c')
+				if (format[i] == 'c')
 				{
 					specifier = char_func(character);
 					counter += specifier;
 				}
-				else if (*format == 's')
+				else if (format[i] == 's')
 				{
 					specifier = string_func(character);
 					counter += specifier;
 				}
-				else if (*format == '%')
+				else if (format[i] == '%')
 				{
 					specifier = percent_func(character);
 					counter += specifier;
