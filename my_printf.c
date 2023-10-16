@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 				counter++;/*print string*/
 			else
 			{
-				i++;
+				format++;
 				if (format[i] == '\0')
 					break;/*finish program*/
 				if (format[i] == 'c')
@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 					counter += specifier;
 				}
 			}
-
+			i++;
 		}
 		va_end(character);/*rlease the list*/
 		return (counter);
