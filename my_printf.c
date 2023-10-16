@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * _printf - function that do samr work as printf
- * @formate: character
+ * @format: character
  * Return: number of charactuers that been printed
  */
 int _printf(const char *format, ...)
@@ -35,9 +35,9 @@ int _printf(const char *format, ...)
 					specifier = percent_func(format);
 					counter += specifier;
 				}
-                	}
-                	i++;
+			}
+			i++;
 		}
 		va_end(character);/*rlease the list*/
-		return (counter);/
+		return (counter);
 }
