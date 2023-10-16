@@ -18,7 +18,7 @@ int _strlen(char *s)
 /**
  * char_func - function to handle specifier 'c'
  * @sp: variadic function argument
- * Return: charcter to be printed
+ * Return: int
  */
 int char_func(va_list sp)
 {
