@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 					specifier = percent_func(args);
 					counter += specifier;
 				}
-				}
+			}
 				i++;/*move next */
 		}
 		va_end(args);/*rlease the list*/
