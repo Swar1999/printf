@@ -21,19 +21,20 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == 'c')
 				{
-					specifier = char_func(args);
-					counter += specifier;
+					char c = va_arg(args, int);
+						simi_putc(c);
+						counter++;
 				}
 				else if (format[i + 1] == 's')
 				{
-					specifier = string_func(args);
-					i++;/*read each character*/
-					counter += (specifier - 1);
+					char *s = va_arg(args, char *);
+						specifier = simi_puts(s);
+						counter += specifier;
 				}
 				else if (format[i + 1] == '%')
 				{
-					specifier = percent_func(args);
-					counter += specifier;
+					simi_putc('%');
+					counter++;
 				}
 			}
 				i++;/*move next */
