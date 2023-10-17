@@ -18,7 +18,10 @@ int _printf(const char *format, ...)
 		for (i = 0; format[i] != '\0'; i++)/*end of string*/
 		{
 			if (format[i] != '%')/*no specifiers*/
+			{
+				write(1, &format[i], 1);/*write to stdout*/
 				counter++;/*print string*/
+			}
 			else
 			{
 				if (format[i + 1] == 'c')

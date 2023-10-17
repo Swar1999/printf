@@ -34,3 +34,4 @@ int percent_func(va_list sp)
 	(void) sp;
 	return (simi_putc('%'));
 }
+
