@@ -9,10 +9,10 @@ int _printf(const char *format, ...)
 	int i;
 	int counter = 0;/* to count each characture that is printed*/
 	int specifier;
-	va_list character;/*ceart variadic list*/
+	va_list args;/*ceart variadic list*/
 		if (format == NULL)/*no character detected*/
 			return (-1);/*failed*/
-		va_start(character, format);/*initlize the list*/
+		va_start(args, format);/*initlize the list*/
 		for (i = 0; format[i] != '\0'; i++)/*end of string*/
 		{
 			if (format[i] != '%')/*no specifiers*/
@@ -21,21 +21,22 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == 'c')
 				{
-					specifier = char_func(character);
+					specifier = char_func(args);
 					counter += specifier;
 				}
 				else if (format[i + 1] == 's')
 				{
-					specifier = string_func(character);
+					specifier = string_func(args);
 					counter += specifier;
 				}
 				else if (format[i + 1] == '%')
 				{
-					specifier = percent_func(character);
+					specifier = percent_func(args);
 					counter += specifier;
 				}
-			}
+				}
+				i++;/*move next */
 		}
-		va_end(character);/*rlease the list*/
+		va_end(args);/*rlease the list*/
 		return (counter);
 }
