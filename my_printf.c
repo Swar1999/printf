@@ -22,18 +22,19 @@ int _printf(const char *format, ...)
 				if (format[i + 1] == 'c')
 				{
 					specifier = char_func(args);
+					counter += specifier;
 				}
 				else if (format[i + 1] == 's')
 				{
 					specifier = string_func(args);
 					i++;
-					counter += specifier;
+					counter += (specifier - 1);
 				}
 				else if (format[i + 1] == '%')
 				{
 					specifier = percent_func(args);
+					counter += specifier;
 				}
-				counter += 1;/*add one character*/
 			}
 		}
 		va_end(args);/*rlease the list*/
