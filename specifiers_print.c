@@ -8,17 +8,4 @@ int simi_putc(char c)
 {
 	return (write(1, &c, 1));
 }
-/**
- * simi_puts - function that prints string
- * @c: pointer
- * Return: number of bytes
- */
-int simi_puts(char *c)
-{
-	int count = 0;
-		while (c[count] != '\0')/*character exists*/
-		{
-			count++;
-		}
-		return (write(1, c, count));
-}
+

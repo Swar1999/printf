@@ -16,8 +16,13 @@ int char_func(va_list sp)
  */
 int string_func(va_list sp)
 {
+	int length = 0; /*length of string*/
 	char *s = va_arg(sp, char *);
-		return (simi_puts(s));/*call simi_puts function*/
+		if (s == NULL)
+			s = "(null)";/*print null*/
+		while (s[length] != '\0')/*check all characters*/
+			length += simi_putc(s[length]);
+		return (length);
 }
 /**
  * percent_func - function to handle specifier '%'
