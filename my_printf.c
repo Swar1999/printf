@@ -34,6 +34,10 @@ int _printf(const char *format, ...)
 					specifier = percent_func(args);
 					counter += specifier;
 				}
+				else if (format[i] == '%' && !format[i + 1])
+					return (-1);
+				else if (format[i] == '%' && format[i + 1] == ' ' && !format[i + 2])
+					return (-1);
 			}
 				i++;/*move next */
 		}

@@ -16,7 +16,7 @@ int simi_putc(char c)
 int simi_puts(char *c)
 {
 	int count = 0;
-		while (*c != '\0')/*character exists*/
+		while (c[count] != '\0')/*character exists*/
 		{
 			simi_putc(c[count]);/*write each character*/
 			count++;
