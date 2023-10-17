@@ -21,8 +21,8 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == 'c')
 				{
-					 char_func(args);
-					counte++;
+					specifier = char_func(args);
+					counter += specifier;
 				}
 				else if (format[i + 1] == 's')
 				{
@@ -32,8 +32,8 @@ int _printf(const char *format, ...)
 				}
 				else if (format[i + 1] == '%')
 				{
-					percent_func(args);
-					counter++;
+					specifier = percent_func(args);
+					counter += specifier
 				}
 			}
 		}
