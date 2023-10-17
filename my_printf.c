@@ -12,9 +12,9 @@ int _printf(const char *format, ...)
 	va_list args;/*ceart variadic list*/
 		if (format == NULL)/*no character detected*/
 			return (-1);/*failed*/
-		va_start(args, format);/*initlize the list*/
 		if (format[0] == '%' && format[1] == '\0')
 			return (-1);
+		va_start(args, format);/*initlize the list*/
 		for (i = 0; format[i] != '\0'; i++)/*end of string*/
 		{
 			if (format[i] != '%')/*no specifiers*/
@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 				{
 					specifier = string_func(args);
 					i++;
-					counter += (specifier - 1);
+					counter += specifier;
 				}
 				else if (format[i + 1] == '%')
 				{
