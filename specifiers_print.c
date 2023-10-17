@@ -15,11 +15,11 @@ int simi_putc(char c)
  */
 int simi_puts(char *c)
 {
-	int count;
-		if (c)/*character exists*/
+	int count = 0;
+		while (*c != '\0')/*character exists*/
 		{
-			for (count = 0; c[count] != '\0'; count++)
-				simi_putc(c[count]);/*write each character*/
+			simi_putc(c[count]);/*write each character*/
+			count++;
 		}
 		return (count);
 }
