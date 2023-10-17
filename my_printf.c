@@ -8,7 +8,7 @@ int _printf(const char *format, ...)
 {
 	int i;
 	int counter = 0;/* to count each characture that is printed*/
-	int specifier;
+	unsigned int specifier;
 	va_list args;/*ceart variadic list*/
 		if (format == NULL)/*no character detected*/
 			return (-1);/*failed*/
@@ -21,20 +21,18 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == 'c')
 				{
-					char c = va_arg(args, int);
-						simi_putc(c);
-						counter++;
+					specifier = char_func(args);
+					counter += specifier;
 				}
 				else if (format[i + 1] == 's')
 				{
-					char *s = va_arg(args, char *);
-						specifier = simi_puts(s);
-						counter += specifier;
+					specifier = string_func(args);
+					counter += specifier;
 				}
 				else if (format[i + 1] == '%')
 				{
-					simi_putc('%');
-					counter++;
+					specifier = percent_func(args);
+					counter += specifier;
 				}
 			}
 				i++;/*move next */
