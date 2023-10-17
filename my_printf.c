@@ -26,19 +26,19 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == 'c')
 				{
-					specifier = char_func(args);
-					counter += specifier;
+				       	char_func(args);
+					i++;/*move to next one*/
 				}
 				else if (format[i + 1] == 's')
 				{
 					specifier = string_func(args);
-					i++;
 					counter += specifier;
+					i++;
 				}
 				else if (format[i + 1] == '%')
 				{
-					specifier = percent_func(args);
-					counter += specifier;
+					 percent_func(args);
+					 i++;
 				}
 			}
 		}
