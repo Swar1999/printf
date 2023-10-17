@@ -1,21 +1,5 @@
 #include "main.h"
 /**
- * _strlen - Entry point
- * Description: program that print the string length
- * @s: pointer
- * Return: length of a string
- */
-int _strlen(char *s)
-{
-	int len = 0;
-		while (*s != '\0')
-		{
-			len++;
-			s++;
-		}
-		return (len);
-}
-/**
  * char_func - function to handle specifier 'c'
  * @sp: variadic function argument
  * Return: int
@@ -23,7 +7,7 @@ int _strlen(char *s)
 int char_func(va_list sp)
 {
 	char c = va_arg(sp, int);
-		return (write(1, &c, 1));/*return the chars*/
+		return (simi_putc(c));/*call simi_putc function*/
 }
 /**
  * string_func - function to handle specifier 's'
@@ -33,7 +17,7 @@ int char_func(va_list sp)
 int string_func(va_list sp)
 {
 	char *s = va_arg(sp, char *);
-		return (write(1, s, strlen(s)));/*return string*/
+		return (simi_puts(s));/*call simi_puts function*/
 }
 /**
  * percent_func - function to handle specifier '%'
@@ -43,5 +27,5 @@ int string_func(va_list sp)
 int percent_func(va_list sp)
 {
 	(void) sp;
-	return (write(1, "%%", 1));
+	return (simi_putc('%'));
 }

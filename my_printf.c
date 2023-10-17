@@ -13,32 +13,28 @@ int _printf(const char *format, ...)
 		if (format == NULL)/*no character detected*/
 			return (-1);/*failed*/
 		va_start(character, format);/*initlize the list*/
-		while(format[i] != '\0')/*end of string*/
+		for (i = 0; format[i] != '\0'; i++)/*end of string*/
 		{
 			if (format[i] != '%')/*no specifiers*/
 				counter++;/*print string*/
 			else
 			{
-				format++;
-				if (format[i] == '\0')
-					break;/*finish program*/
-				if (format[i] == 'c')
+				if (format[i + 1] == 'c')
 				{
 					specifier = char_func(character);
 					counter += specifier;
 				}
-				else if (format[i] == 's')
+				else if (format[i + 1] == 's')
 				{
 					specifier = string_func(character);
 					counter += specifier;
 				}
-				else if (format[i] == '%')
+				else if (format[i + 1] == '%')
 				{
 					specifier = percent_func(character);
 					counter += specifier;
 				}
 			}
-			i++;
 		}
 		va_end(character);/*rlease the list*/
 		return (counter);
