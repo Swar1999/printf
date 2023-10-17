@@ -22,7 +22,6 @@ int _printf(const char *format, ...)
 				if (format[i + 1] == 'c')
 				{
 					specifier = char_func(args);
-					i++;
 				}
 				else if (format[i + 1] == 's')
 				{
