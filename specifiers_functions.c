@@ -34,4 +34,18 @@ int percent_func(va_list sp)
 	(void) sp;
 	return (simi_putc('%'));
 }
-
+/**
+ * int_func - function to handle specifier 'd' and 'i'
+ * @sp: variadic function argument
+ * Return: intgres to be printed
+ */
+int int_func(va_list sp)
+{
+	int num_len;
+	int number = va_arg(sp, int);
+		while (number)
+		{
+			num_len++;
+		}
+		return (num_len);
+}
