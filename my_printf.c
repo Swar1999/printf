@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 				if (format[i + 1] == 'c')
 				{
 					specifier = char_func(args);
-					counter += specifier;
+					i++;
 				}
 				else if (format[i + 1] == 's')
 				{
@@ -33,8 +33,8 @@ int _printf(const char *format, ...)
 				else if (format[i + 1] == '%')
 				{
 					specifier = percent_func(args);
-					counter += specifier;
 				}
+				counter += 1;/*add one character*/
 			}
 		}
 		va_end(args);/*rlease the list*/
