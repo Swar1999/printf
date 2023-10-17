@@ -27,7 +27,8 @@ int _printf(const char *format, ...)
 				else if (format[i + 1] == 's')
 				{
 					specifier = string_func(args);
-					counter += specifier;
+					i++;/*read each character*/
+					counter += (specifier - 1);
 				}
 				else if (format[i + 1] == '%')
 				{
